@@ -10,21 +10,40 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-        Image("meat")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .padding()
-            .shadow(radius: 50 )
-            
-        Text("Smokin' these meats")
-            .font(.largeTitle)
-            .fontWeight(.heavy)
-            .foregroundColor(Color.red)
-            .shadow(color: .black, radius: 0.1, x: 2, y: 2 )
-            
+            ZStack {
+                Image("meat")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                VStack {
+                    Image("TopGradient")
+                        .resizable()
+                    Image("BottomGradient")
+                        .resizable()
+                }.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+
+                VStack {
+                    HStack {
+                        Text("Smokin' these meats")
+                            .font(.title2)
+                            .fontWeight(.heavy)
+                            .foregroundColor(Color.white)
+                            .shadow(color: .black, radius: 0.1, x: 2, y: 2 )
+                    }
+                    
+                    Spacer()
+                    
+                    HStack {
+                        Text("Meat like a brisket")
+                            .font(.body)
+                            .fontWeight(.regular)
+                            .foregroundColor(Color.white)
+                            .padding(.trailing, 200.0)
+                            .shadow(color: .black, radius: 0.1, x: 2, y: 2 )
+                    }
+                }
+            }
         }
-            
-        
     }
 }
 
